@@ -5,14 +5,14 @@ class PDFLoader(PyMuPDFLoader):
     """
     Load PDF menggunakan PyMuPDFLoader dari Langchain community.
     """
-    def __init__(self, file_path: str):
+    def __init__(self, file_path: str = "data"):
         """
         Inisialisasi PDFLoader dengan path file PDF.
         
         Args:
             file_path (str): path ke file PDF yang akan dimuat.
         """
-        super().__init__(file_path)
+        # super().__init__(file_path)
         self.file_path = file_path
     
     def cari_data(self):
@@ -23,7 +23,7 @@ class PDFLoader(PyMuPDFLoader):
             list: berisi path lengkap ke semua file PDF di dalam folder data dan subfoldernya.
         """
         list_pdfs = []
-        for root, dirs, files in os.walk('data'):
+        for root, dirs, files in os.walk(self.file_path):
             for file in files:
                 if file.endswith('.pdf'):
                     list_pdfs.append(os.path.join(root, file))
@@ -39,10 +39,10 @@ class PDFLoader(PyMuPDFLoader):
         """
 
         list_docs = []
-        list_pdfs = self.cari_data()
-        for pdf in list_pdfs:
+        # list_pdfs = self.cari_data()
+        for pdf in self.cari_data():
             loader = PyMuPDFLoader(pdf)
             pages = loader.load()
             list_docs.extend(pages)
-
+            
         return list_docs

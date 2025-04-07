@@ -24,7 +24,7 @@ class OllamaGenerator:
             base_url=self.config['ollama']['base_url'],
             temperature=0.3,
             top_p=0.9,
-            system="You are a helpful assistant specialized in fitness and nutrition."
+            system="You are a helpful assistant."
             "always answer based on the provided context."
         )
     
@@ -36,7 +36,7 @@ class OllamaGenerator:
         return ChatPromptTemplate.from_template(
             """<|begin_of_text|>
             <|start_header_id|>system<|end_header_id|>
-            You are an expert fitness coach. Answer the question using ONLY the provided context. 
+            You are an assistant. Answer the question using ONLY the provided context. 
             If unsure, say you don't know. Prioritize scientific evidence from context.
             
             Guidelines:

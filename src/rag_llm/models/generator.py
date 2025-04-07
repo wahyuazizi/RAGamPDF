@@ -93,7 +93,7 @@ class OllamaGenerator:
 
             # Tambah sumber sitasi
             sources = {
-                doc.metadat.get('source', 'Unknown') for doc in context
+                doc.metadata.get('source', 'Unknown') for doc in context
             }
             if sources:
                 response += "\n\n**Sources:**\n- " + "\n- ".join(sources)

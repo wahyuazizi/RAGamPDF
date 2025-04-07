@@ -1,5 +1,5 @@
 
-from typing import List, Dict, Any
+from typing import List, Dict
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough

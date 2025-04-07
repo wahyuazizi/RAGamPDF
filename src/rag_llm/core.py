@@ -3,13 +3,15 @@ from rag_llm.data.loader import PDFLoader
 from rag_llm.data.splitter import PDFChunker
 from rag_llm.models.retriever import FAISSRetriever
 from rag_llm.models.generator import OllamaGenerator
-from rag_llm.utils.config import load_config
 
 class RAGPipeline:
     def __init__(self, config: dict):
         self.config = config
         self.loader = PDFLoader(self.config['data_paths']['raw'])
-        self.splitter = PDFChunker()
+        self.splitter = PDFChunker(
+            chunk_size=config['chunk_size'],
+            chunk_overlap=config['chunk_overlap'],
+        )
         self.retriever = FAISSRetriever()
         self.generator = OllamaGenerator(
             model_name=self.config['model']

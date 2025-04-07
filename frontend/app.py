@@ -38,7 +38,7 @@ def sidebar_config():
         with st.expander("Advanced Settings"):
             chunk_size = st.slider("Chunk Size", 256, 2048, 1024)
             chunk_overlap = st.slider("Chunk Overlap", 0, 512, 64)
-            search_depth = st.slider("Search Depth", 1, 10, 3)
+            # search_depth = st.slider("Search Depth", 1, 10, 3)
 
     return{
         "model": selected_model,

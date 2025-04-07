@@ -3,11 +3,9 @@
 """
 
 import os
-import faiss
 from typing import List, Optional
 from langchain_ollama import OllamaEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain_community.docstore.in_memory import InMemoryDocstore
 from langchain.schema import Document
 from rag_llm.utils.config import load_config
 

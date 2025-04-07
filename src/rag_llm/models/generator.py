@@ -8,7 +8,8 @@ from langchain.schema import Document
 from rag_llm.utils.config import load_config
 
 class OllamaGenerator:
-    def __init__(self):
+    def __init__(self, model_name: str):
+        self.model_name = model_name
         self.config = load_config()
         self.llm = self._init_llm()
         self.prompt_template = self._create_prompt()
@@ -19,7 +20,7 @@ class OllamaGenerator:
         Inisialisasi Ollama dengan config
         """
         return ChatOllama(
-            model=self.config['ollama']['llm_model'],
+            model=self.model_name,
             base_url=self.config['ollama']['base_url'],
             temperature=0.3,
             top_p=0.9,

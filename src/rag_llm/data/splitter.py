@@ -9,7 +9,7 @@ class PDFChunker:
     """
     kelas PDFChuncker untuk membagi teks menjadi potongan-potongan kecil.
     """
-    def __init__(self, chunk_size: int = 1000, chunk_overlap: int = 300):
+    def __init__(self, chunk_size: int = 512, chunk_overlap: int = 64):
         """
         Inisialisasi PDFChunker dengan ukuran chunk dan overlap.
         

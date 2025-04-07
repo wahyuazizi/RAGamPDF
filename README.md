@@ -7,7 +7,7 @@ A simple RAG (Retrieval-Augmented Generation) system that lets you chat with you
 - **Tech Stack**: 
   - Ollama (for LLMs & embeddings)
   - Streamlit (web interface)
-  - FAISS (vector storage)
+  - Langchain - FAISS (vector storage)
   - PyMuPDF (PDF processing)
 
 ## **Prerequisites**
